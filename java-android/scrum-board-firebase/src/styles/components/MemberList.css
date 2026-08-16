@@ -1,0 +1,144 @@
+/* Min teamlista - visar alla medlemmar snyggt */
+
+.member-list-container {
+  margin-bottom: 32px;
+}
+
+/* Listans huvud med rubrik och knappar */
+.member-list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.member-list-header h2 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+/* Laddningsindikator */
+.loading-indicator {
+  text-align: center;
+  padding: 24px;
+  color: #666;
+}
+
+/* Tom lista - ser snygg ut även utan innehåll */
+.empty-state {
+  text-align: center;
+  padding: 32px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  color: #666;
+}
+
+.empty-state p {
+  margin-bottom: 16px;
+}
+
+/* Rutnät för medlemskorten */
+.member-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+/* Medlemskort med snygg hover-effekt */
+.member-card {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.member-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Avatar-cirkel */
+.member-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-bottom: 16px;
+  overflow: hidden;
+}
+
+.member-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Initialer när bild saknas */
+.member-initials {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #3498db;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+/* Medlemsinformation */
+.member-info {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.member-name {
+  margin: 0 0 8px 0;
+  font-size: 1.2rem;
+}
+
+/* Roll-badge */
+.member-role {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+/* Färger för olika roller */
+.role-frontend {
+  background-color: var(--category-frontend);
+  color: white;
+}
+
+.role-backend {
+  background-color: var(--category-backend);
+  color: white;
+}
+
+.role-ux {
+  background-color: var(--category-ux);
+  color: white;
+}
+
+.role-default {
+  background-color: #95a5a6;
+  color: white;
+}
+
+/* Responsiv anpassning */
+@media (max-width: 768px) {
+  .member-list-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  
+  .member-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+}

@@ -1,0 +1,45 @@
+# .gitignore for IDE and build artifacts
+
+# IntelliJ / Android Studio
+.idea/
+*.iml
+.gradle/
+build/
+local.properties
+
+# Xcode
+xcuserdata/
+*.xcworkspace
+DerivedData/
+*.pbxuser
+*.mode1v3
+*.mode2v3
+*.perspectivev3
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+*.egg-info/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Node / JS
+node_modules/
+dist/
+build/
+.next/
+.nuxt/
+.cache/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Misc
+*.log
+*.bak
+*.tmp

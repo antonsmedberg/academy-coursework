@@ -1,0 +1,308 @@
+/* Stilguide för hela appen 🎨 */
+
+/* Nollställning */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* Färgpalett 🎨 */
+  --primary-color: #2563eb; /* Huvudblå */
+  --primary-light: #4285f4; /* Ljusare blå */
+  --primary-dark: #1e40af; /* Mörkare blå */
+
+  --secondary-color: #0f766e; /* Grön för framgång */
+  --secondary-light: #14b8a6; /* Ljusare grön */
+  --secondary-dark: #0f5259; /* Mörkare grön */
+
+  --accent-color: #c2410c; /* Orange för uppmärksamhet */
+  --accent-light: #ea580c; /* Ljusare orange */
+  --accent-dark: #9a3412; /* Mörkare orange */
+
+  /* Statusfärger */
+  --status-new: var(--primary-color); /* Nya uppgifter */
+  --status-in-progress: var(--accent-color); /* Pågående arbete */
+  --status-completed: var(--secondary-color); /* Klara uppgifter */
+
+  /* Kategorifärger */
+  --category-frontend: #0ea5e9; /* Frontend-uppgifter */
+  --category-backend: #0f766e; /* Backend-uppgifter */
+  --category-ux: #7c3aed; /* UX-uppgifter */
+
+  /* Basfärger */
+  --background-color: #f9fafb; /* Bakgrund */
+  --card-background: #ffffff;
+  --text-primary: #111827; /* Huvudtext */
+  --text-secondary: #4b5563; /* Sekundär text */
+  --border-color: #e5e7eb; /* Gränser */
+
+  /* Skuggor */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.02), 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.04), 0 2px 4px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.04), 0 4px 6px rgba(0, 0, 0, 0.05);
+  --shadow-hover: 0 4px 12px rgba(0, 0, 0, 0.05), 0 2px 4px rgba(0, 0, 0, 0.05);
+
+  /* Avstånd - samma överallt för enhetlig känsla */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-xxl: 3rem;
+
+  /* Rundade hörn - mer distinkta med mindre rundning */
+  --border-radius-sm: 4px;
+  --border-radius-md: 6px;
+  --border-radius-lg: 8px;
+  --border-radius-pill: 24px; /* För badges och knappar, mindre rundade */
+
+  /* Animationstider och kurvor - mer naturliga rörelser */
+  --transition-fast: 0.2s;
+  --transition-medium: 0.3s;
+  --transition-slow: 0.5s;
+  --transition-bounce: cubic-bezier(
+    0.34,
+    1.56,
+    0.64,
+    1
+  ); /* För mer livfulla animationer */
+  --transition-smooth: cubic-bezier(0.4, 0, 0.2, 1); /* För mjuka övergångar */
+}
+
+body {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+    "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--background-color);
+  color: var(--text-primary);
+  line-height: 1.6;
+  font-size: 16px;
+  /* Subtil bakgrund */
+  background-image: linear-gradient(
+    to bottom right,
+    rgba(37, 99, 235, 0.01),
+    rgba(15, 118, 110, 0.01)
+  );
+  min-height: 100vh;
+  position: relative;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+/* Typografi - mer elegant och professionell */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-bottom: 0.5em;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+  font-family: "Inter", system-ui, sans-serif;
+}
+
+h1 {
+  font-size: 2.5rem;
+  position: relative;
+  display: inline-block;
+  margin-bottom: 1.2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+/* Subtil accent för huvudrubriken */
+h1::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 40px;
+  height: 3px;
+  background: var(--primary-color);
+  border-radius: 2px;
+  transition: width 0.3s ease;
+  opacity: 0.8;
+}
+
+/* Subtil hover-effekt utan expandering */
+h1:hover::after {
+  width: 60px;
+  opacity: 1;
+}
+
+h2 {
+  font-size: 1.75rem;
+  position: relative;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+h3 {
+  font-size: 1.35rem;
+  margin-bottom: 0.8rem;
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+p {
+  margin-bottom: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color 0.2s ease;
+  font-weight: 500;
+  position: relative;
+}
+
+/* Hover-effekt för länkar */
+a:hover {
+  color: var(--primary-light);
+}
+
+/* Understrykning för länkar */
+a:not(.button) {
+  border-bottom: 1px solid rgba(37, 99, 235, 0.1);
+  padding-bottom: 1px;
+}
+
+a:not(.button):hover {
+  border-bottom-color: var(--primary-light);
+}
+
+/* Container - håller allt innehåll på plats */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-lg);
+  position: relative;
+}
+
+/* Kort - mer distinkt stil för alla "boxar" */
+.card {
+  background-color: var(--card-background);
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-sm);
+  padding: var(--spacing-lg);
+  transition: all var(--transition-medium) var(--transition-smooth);
+  border: 1px solid var(--border-color);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Mer subtil hover-effekt med mindre dramatisk lyft */
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-hover);
+  border-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Distinkt highlight-effekt vid hover */
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(
+    to right,
+    var(--primary-color),
+    var(--secondary-color)
+  );
+  opacity: 0;
+  transition: opacity var(--transition-medium) var(--transition-smooth);
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+/* Förbättrade animationer - mer livfulla och moderna */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Responsivitet - funkar på alla skärmstorlekar */
+@media (max-width: 1200px) {
+  .container {
+    max-width: 960px;
+  }
+}
+
+@media (max-width: 992px) {
+  .container {
+    max-width: 720px;
+  }
+
+  h1 {
+    font-size: 2.2rem;
+  }
+
+  h2 {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+  }
+  h2 {
+    font-size: 1.6rem;
+  }
+  h3 {
+    font-size: 1.3rem;
+  }
+  .container {
+    max-width: 540px;
+    padding: 0 var(--spacing-md);
+  }
+}
+
+@media (max-width: 576px) {
+  h1 {
+    font-size: 1.8rem;
+  }
+  h2 {
+    font-size: 1.4rem;
+  }
+  h3 {
+    font-size: 1.2rem;
+  }
+  .container {
+    padding: 0 var(--spacing-sm);
+  }
+}

@@ -1,0 +1,3 @@
+<resources>
+    <dimen name="search_field_max_width">488dp</dimen>
+</resources>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Movie Buddy App</title>
+  <!-- Font Awesome 6 Free CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous">
+  <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="styles/card.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🎬 Welcome to Movie Buddy!</h1>
+      <div id="search-bar-root"></div>
+    </header>
+    <main>
+      <!-- Tabbed HomePage (Top Rated & Most Popular) -->
+      <section id="top-rated-root" aria-label="Top Movies"></section>
+      <!-- Search results (hidden unless searching) -->
+      <section id="search-results-root"></section>
+      <section id="error-message-root"></section>
+    </main>
+    <footer>
+      <div class="footer-content">
+        <p>Created by <span class="author">Anton Smedberg</span></p>
+        <p class="powered-by">Powered by TMDB API</p>
+      </div>
+    </footer>
+  </div>
+  <script type="module" src="js/main.js"></script>
+  <script>
+    // Debug script to help identify issues
+    window.addEventListener('DOMContentLoaded', () => {
+      console.log('DOM fully loaded');
+
+      // Check if elements exist
+      const topRatedRoot = document.getElementById('top-rated-root');
+      const searchResultsRoot = document.getElementById('search-results-root');
+      const errorMessageRoot = document.getElementById('error-message-root');
+
+      console.log('Elements found:', {
+        topRatedRoot: !!topRatedRoot,
+        searchResultsRoot: !!searchResultsRoot,
+        errorMessageRoot: !!errorMessageRoot
+      });
+
+      // Add a fallback message if nothing renders after 5 seconds
+      setTimeout(() => {
+        if (topRatedRoot && topRatedRoot.children.length === 0) {
+          console.log('No content rendered after 5 seconds, adding fallback message');
+          const fallback = document.createElement('div');
+          fallback.style.padding = '2rem';
+          fallback.style.textAlign = 'center';
+          fallback.style.color = '#e50914';
+          fallback.innerHTML = '<h3>Loading content...</h3><p>If nothing appears, there might be an issue with the API or JavaScript. Check the console for errors.</p>';
+          topRatedRoot.appendChild(fallback);
+        }
+      }, 5000);
+    });
+  </script>
+</body>
+</html>

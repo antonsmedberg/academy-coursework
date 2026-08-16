@@ -1,0 +1,100 @@
+/* Importing Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap');
+
+/* Root Variables */
+:root {
+    --primary-bg-color: #f8f9fa; /* Light background */
+    --secondary-bg-color: #4CAF50; /* Secondary color for highlighting */
+    --error-bg-color: #F44336; /* Error background */
+    --text-color: #333; /* Text color */
+    --error-text-color: #fff; /* Error text color */
+    --link-color: #3498db; /* Link color */
+    --link-hover-color: #2980b9; /* Link hover color */
+    --button-bg-color: var(--link-color); /* Button background color */
+    --button-hover-bg-color: var(--link-hover-color); /* Button hover background color */
+    --border-radius: 5px; /* Border radius for elements */
+    --transition-speed: 0.3s; /* Transition speed */
+    --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Box shadow for elements */
+
+    /* Typography */
+    --font-family: 'Nunito', sans-serif; /* Base font family */
+    --font-size-base: 16px; /* Base font size */
+}
+
+/* Typography */
+html {
+    font-size: var(--font-size-base); /* Set base font size */
+}
+
+body {
+    margin: 0;
+    font-family: var(--font-family);
+    background-color: var(--primary-bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* Box Sizing */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+/* Link Styles */
+a {
+    color: var(--link-color);
+    text-decoration: none;
+}
+
+a:hover, a:focus {
+    text-decoration: underline;
+    color: var(--link-hover-color);
+}
+
+/* Button Styles */
+button {
+    background-color: var(--button-bg-color);
+    color: var(--error-text-color);
+    border: none;
+    border-radius: var(--border-radius);
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color var(--transition-speed), transform var(--transition-speed);
+    font-family: inherit;
+    font-weight: 700;
+}
+
+button:hover {
+    background-color: var(--button-hover-bg-color);
+}
+
+button:active {
+    transform: translateY(2px);
+}
+
+/* Additional Styles for Forms */
+input, select, textarea {
+    font-family: inherit;
+    font-size: 1rem;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: var(--border-radius);
+    margin-bottom: 1rem;
+}
+
+input:focus, select:focus, textarea:focus {
+    border-color: var(--link-color);
+    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+}
+
+.error-message {
+    color: var(--error-bg-color);
+    background-color: rgba(244, 67, 54, 0.1);
+    padding: 0.5rem;
+    border-radius: var(--border-radius);
+    margin-top: 1rem;
+}
+
+
+
+
+  

@@ -1,0 +1,69 @@
+{
+  "name": "java24-ajs-slutprojekt-anton-smedberg",
+  "version": "2.0.0",
+  "description": "Modern Scrum Board - Ett slutprojekt för JAVA24-AJS av Anton Smedberg med senaste React och Firebase",
+  "author": "Anton Smedberg",
+  "license": "MIT",
+  "source": "public/index.html",
+  "homepage": "https://antonsmedberg.github.io/JAVA24-AJS-slutprojekt-Anton-Smedberg",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/antonsmedberg/JAVA24-AJS-slutprojekt-Anton-Smedberg"
+  },
+  "keywords": [
+    "react",
+    "scrum",
+    "kanban",
+    "firebase",
+    "project-management",
+    "task-management"
+  ],
+  "engines": {
+    "node": ">=20.0.0",
+    "npm": ">=9.0.0"
+  },
+  "dependencies": {
+    "firebase": "^11.8.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-error-boundary": "^4.0.12",
+    "react-router-dom": "^6.30.1"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.27.2",
+    "@babel/preset-react": "^7.27.1",
+    "@parcel/packager-raw-url": "^2.15.0",
+    "@parcel/transformer-webmanifest": "^2.15.0",
+    "buffer": "^6.0.3",
+    "gh-pages": "^6.1.1",
+    "parcel": "^2.15.0",
+    "process": "^0.11.10"
+  },
+  "scripts": {
+    "dev": "parcel public/index.html --open",
+    "dev-stable": "parcel public/index.html --open --no-hmr --no-autoinstall",
+    "start": "npm run dev",
+    "build": "parcel build public/index.html --public-url ./ --no-scope-hoist",
+    "build-prod": "parcel build public/index.html --public-url ./",
+    "preview": "parcel serve dist --port 3000",
+    "clean": "rm -rf dist/ .parcel-cache/",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist",
+    "lint": "echo 'Linting not configured yet'",
+    "test": "echo 'Tests not configured yet'"
+  },
+  "browserslist": {
+    "production": [
+      ">0.5%",
+      "not dead",
+      "not op_mini all",
+      "not ie 11"
+    ],
+    "development": [
+      "last 2 chrome versions",
+      "last 2 firefox versions",
+      "last 2 safari versions",
+      "last 2 edge versions"
+    ]
+  }
+}

@@ -1,0 +1,538 @@
+/* card.css - Card & Grid Styles Override */
+.card-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Smaller cards */
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  padding: 0.5rem 0;
+  align-items: stretch;
+}
+
+/* Premium Card Styles */
+
+/* Base card styles for all cards */
+.movie-card, .person-card {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06), 0 1px 3px rgba(0,0,0,0.02);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  position: relative;
+  animation: cardFadeIn 0.5s ease-out forwards;
+  width: 100%;
+  max-width: 240px; /* Consistent width for all cards */
+  margin: 0 auto; /* Center cards in grid */
+  border: 1px solid #eee;
+}
+
+/* Movie cards in home page */
+#top-rated-root .movie-card,
+#popular-root .movie-card {
+  height: 450px; /* Standard height for home page movie cards */
+}
+
+/* Cards in search results */
+.search-results-content .movie-card {
+  height: 520px; /* Taller for search results to fit description */
+}
+
+.search-results-content .person-card {
+  height: 520px; /* Same height as movie cards for consistency */
+}
+
+@keyframes cardFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Card hover effects */
+.movie-card:hover, .person-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  border-color: rgba(229, 9, 20, 0.2);
+}
+
+/* Movie image container */
+.card-image-container {
+  height: 340px; /* Standard height for movie images */
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  background-color: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid #eee;
+  background-image: linear-gradient(to bottom, #f5f5f5, #f0f0f0);
+}
+
+/* Person image container - different aspect ratio */
+.person-image-container {
+  height: 260px; /* Much shorter for person images to make room for content */
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  background-color: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid #eee;
+}
+
+/* No image indicator */
+.no-image::after {
+  content: 'No Image Available';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+  font-size: 0.85rem;
+  text-align: center;
+  padding: 1rem;
+  background-color: #f5f5f5;
+}
+
+/* Movie poster images */
+.movie-card .card-image {
+  width: auto;
+  height: 100%;
+  max-width: 100%;
+  object-fit: contain; /* Show full poster without cropping */
+  transition: all 0.3s ease;
+  display: block;
+  background-color: transparent;
+  margin: 0 auto;
+}
+
+/* Person images - different handling */
+.person-card .card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Cover to ensure consistent sizing */
+  object-position: center 10%; /* Focus on face area */
+  transition: all 0.3s ease;
+  display: block;
+  background-color: #f0f0f0;
+}
+
+/* Special handling for different image aspect ratios */
+.wide-image .card-image,
+.tall-image .card-image,
+.wide-poster .card-image,
+.tall-poster .card-image {
+  object-fit: contain;
+  object-position: center;
+  background-color: transparent;
+}
+
+/* Add padding for wide posters */
+.wide-poster {
+  padding: 0 10px;
+}
+
+/* Add padding for tall posters */
+.tall-poster {
+  padding: 10px 0;
+}
+
+/* Image hover effects */
+.movie-card:hover .card-image,
+.person-card:hover .card-image {
+  transform: scale(1.05);
+  opacity: 0.95;
+}
+
+.movie-info {
+  padding: 1rem; /* Consistent padding */
+  display: flex;
+  flex-direction: column;
+  flex: 1;  /* allow content area to expand */
+  background: linear-gradient(180deg, #ffffff 0%, #fafafa 100%);
+  position: relative;
+}
+
+/* Person card specific styles */
+.person-card {
+  text-align: center;
+  background: linear-gradient(to bottom, #f5f5f5 0%, #ffffff 100%);
+  align-items: center;
+  border: 1px solid #eee;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.person-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+  border-color: rgba(229, 9, 20, 0.2);
+}
+
+.person-info {
+  padding: 0.8rem 0.6rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  text-align: center;
+  width: 100%;
+  position: relative;
+  background: linear-gradient(180deg, #ffffff 0%, #f9f9f9 100%);
+  gap: 0.3rem;
+  overflow: hidden; /* Prevent content overflow */
+}
+
+.known-for {
+  margin-top: 0.2rem;
+  padding: 0.3rem;
+  border-top: 1px solid rgba(0,0,0,0.05);
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: rgba(245, 245, 245, 0.5);
+  border-radius: 4px;
+  max-height: 160px; /* Taller to fit more items */
+  overflow-y: auto; /* Add scrolling if needed */
+  flex: 1; /* Take remaining space */
+}
+
+/* Custom scrollbar for webkit browsers */
+.known-for::-webkit-scrollbar {
+  width: 4px;
+}
+
+.known-for::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.known-for::-webkit-scrollbar-thumb {
+  background-color: rgba(0,0,0,0.2);
+  border-radius: 4px;
+}
+
+.known-for-title {
+  margin: 0 0 0.3rem;
+  font-size: 0.7rem;
+  color: #333;
+  text-align: center;
+  font-weight: 700;
+  position: relative;
+  display: inline-block;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  line-height: 1;
+}
+
+.known-for-title::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 1px;
+  background-color: #e50914;
+}
+
+.known-for-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 0.6rem;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  width: 100%;
+}
+
+.known-for-list li {
+  display: flex;
+  align-items: center;
+  line-height: 1;
+  padding: 0.12rem 0.2rem;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 2px;
+  border: 1px solid rgba(0,0,0,0.05);
+  transition: all 0.2s ease;
+  overflow: hidden;
+  height: 18px; /* Fixed height for consistency */
+}
+
+.media-title {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 70%; /* Limit width to prevent overflow */
+}
+
+.known-for-list li:hover {
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.media-type {
+  font-weight: 700;
+  padding: 0.08rem 0.2rem;
+  border-radius: 2px;
+  margin-right: 0.2rem;
+  font-size: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  min-width: 22px;
+  text-align: center;
+  display: inline-block;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+  flex-shrink: 0; /* Prevent shrinking */
+  line-height: 1;
+}
+
+.media-type.movie {
+  background-color: #e50914;
+  color: white;
+}
+
+.media-type.tv {
+  background-color: #0c4da5;
+  color: white;
+}
+
+.movie-info h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #222;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* Limit to 2 lines */
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+  height: 2.6rem; /* Fixed height for 2 lines */
+}
+
+.person-info h3 {
+  margin: 0 0 0.3rem;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #111;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1; /* Limit to 1 line */
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  position: relative;
+  padding-bottom: 0.3rem;
+}
+
+.person-info h3::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 2px;
+  background-color: rgba(229, 9, 20, 0.5);
+}
+
+.movie-desc {
+  margin: 0.5rem 0 0.8rem;
+  font-size: 0.8rem;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* Limit to 3 lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  color: #555;
+  font-weight: 400;
+  max-height: 3.6rem; /* Approximately 3 lines */
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: 0.6rem;
+  border-radius: 4px;
+  border: 1px solid rgba(0,0,0,0.03);
+}
+
+.movie-info-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-bottom: 0.8rem;
+  padding: 0.6rem;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  background-color: rgba(245, 245, 245, 0.3);
+  border-radius: 4px;
+  max-height: 80px; /* Limit height */
+  overflow: hidden; /* Prevent overflow */
+}
+
+.movie-date, .movie-rating {
+  font-size: 0.85rem;
+  color: #555;
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.movie-date i, .movie-rating i {
+  margin-right: 0.5rem;
+  color: #e50914;
+  font-size: 0.9rem;
+  width: 20px;
+  text-align: center;
+  opacity: 0.9;
+}
+
+.person-info p {
+  margin: 0 0 0.6rem;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* Limit to 2 lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  color: #555;
+  font-weight: 400;
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: 0.6rem;
+  border-radius: 4px;
+  border: 1px solid rgba(0,0,0,0.03);
+  width: 100%;
+}
+
+/* Card details footer */
+.person-details {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.8rem 1rem;
+  border-top: 1px solid rgba(0,0,0,0.05);
+  font-size: 0.8rem;
+  color: #666;
+  background-color: #f9f9f9;
+  margin-top: auto; /* Push to bottom */
+  font-weight: 500;
+  height: 50px; /* Fixed height for consistency */
+}
+
+/* Movie details - hidden to make room for trailer button */
+.movie-details {
+  display: none;
+}
+
+/* Person details - minimal styling */
+.person-details {
+  height: 10px; /* Very small height */
+  padding: 0;
+  margin-top: auto;
+}
+
+.movie-details span, .person-details span {
+  display: flex;
+  align-items: center;
+}
+
+.movie-details span i, .person-details span i {
+  margin-right: 0.25rem;
+  color: #e50914;
+}
+
+.person-popularity {
+  font-size: 0.75rem;
+  color: #e50914;
+  font-weight: 600;
+  margin-bottom: 0.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+.person-popularity i {
+  margin-right: 0.25rem;
+  font-size: 0.8rem;
+}
+
+.department-badge {
+  background-color: #333;
+  color: white;
+  padding: 0.15rem 0.5rem;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: inline-block;
+  margin: 0 auto 0.3rem;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+  position: relative;
+  z-index: 1;
+  line-height: 1;
+}
+
+.trailer-btn {
+  background-color: #e50914;
+  color: white;
+  border: none;
+  border-radius: 0;
+  padding: 0.6rem 0;
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  position: absolute;
+  bottom: 0; /* Position at the very bottom */
+  left: 0;
+  z-index: 5;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.trailer-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: all 0.6s ease;
+}
+
+.trailer-btn:hover {
+  background-color: #cc0812;
+  box-shadow: 0 4px 8px rgba(229, 9, 20, 0.3);
+}
+
+.trailer-btn:hover::before {
+  left: 100%;
+}
+
+.trailer-btn:active {
+  transform: translateY(1px);
+}
+
+.trailer-btn i {
+  margin-right: 0.5rem;
+  font-size: 0.8rem;
+}

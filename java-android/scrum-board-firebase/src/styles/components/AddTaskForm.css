@@ -1,0 +1,68 @@
+/* Mitt formulär för att lägga till uppgifter */
+
+.add-task-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.add-task-form h2 {
+  margin-top: 0;
+  margin-bottom: 8px;
+  font-size: 1.5rem;
+}
+
+/* Formulärgrupper - håller allt snyggt organiserat */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+/* Snygga inmatningsfält */
+.form-group input,
+.form-group select,
+.form-group textarea {
+  padding: 12px 14px;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  font-size: 1rem;
+  font-family: inherit;
+  transition: all 0.2s ease;
+}
+
+/* Fokus-effekt */
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+/* Felmeddelanden */
+.form-error {
+  background-color: rgba(194, 65, 12, 0.05);
+  color: var(--accent-color);
+  padding: 12px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  border-left: 3px solid var(--accent-color);
+}
+
+/* Formulärknappar */
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 8px;
+}

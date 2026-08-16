@@ -1,0 +1,17 @@
+2024-04-02 12:57:16,829:INFO:Testar add(1, 2): Förväntat resultat = 3, Faktiskt resultat = 3
+2024-04-02 12:57:16,829:INFO:Testar add(-1, 1): Förväntat resultat = 0, Faktiskt resultat = 0
+2024-04-02 12:57:16,829:INFO:Testar add(-1, -1): Förväntat resultat = -2, Faktiskt resultat = -2
+2024-04-02 12:57:16,829:INFO:Testar multiply(3, 3): Förväntat resultat = 9, Faktiskt resultat = 9
+2024-04-02 12:57:16,829:INFO:Testar multiply(-1, 1): Förväntat resultat = -1, Faktiskt resultat = -1
+2024-04-02 12:57:16,830:INFO:Testar multiply(-1, -1): Förväntat resultat = 1, Faktiskt resultat = 1
+2024-04-02 12:57:16,830:INFO:Testar multiply(0, 10): Förväntat resultat = 0, Faktiskt resultat = 0
+2024-04-02 13:16:32,015 - root - INFO - Testar add(1, 2): Förväntat = 3, Fått = 3
+2024-04-02 13:16:32,016 - root - INFO - Testar add(-1, 1): Förväntat = 0, Fått = 0
+2024-04-02 13:16:32,016 - root - INFO - Testar add(-1, -1): Förväntat = -2, Fått = -2
+2024-04-02 13:16:32,016 - root - INFO - Testar add(0, 0): Förväntat = 0, Fått = 0
+2024-04-02 13:16:32,016 - root - INFO - Testar add(0.5, 0.5): Förväntat = 1.0, Fått = 1.0
+2024-04-02 13:16:32,016 - root - INFO - Testar multiply(3, 3): Förväntat = 9, Fått = 9
+2024-04-02 13:16:32,017 - root - INFO - Testar multiply(-1, 1): Förväntat = -1, Fått = -1
+2024-04-02 13:16:32,017 - root - INFO - Testar multiply(-1, -1): Förväntat = 1, Fått = 1
+2024-04-02 13:16:32,017 - root - INFO - Testar multiply(0, 10): Förväntat = 0, Fått = 0
+2024-04-02 13:16:32,017 - root - INFO - Testar multiply(0.5, 2): Förväntat = 1.0, Fått = 1.0

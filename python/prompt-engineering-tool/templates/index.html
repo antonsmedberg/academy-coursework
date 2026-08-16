@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prompt Generator</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f4f4f9;
+        }
+        .container {
+            background: #ffffff;
+            padding: 30px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            max-width: 600px;
+            width: 90%;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin: 15px 0 5px;
+            color: #555;
+            font-weight: bold;
+        }
+        input[type="text"], textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        input[type="submit"] {
+            background: #007BFF;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            display: block;
+            width: 100%;
+        }
+        input[type="submit"]:hover {
+            background: #0056b3;
+        }
+        .note {
+            font-size: 14px;
+            color: #888;
+            margin-top: -10px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Generera Uppmaningar</h1>
+        <form action="/generate_prompt" method="post">
+            <label for="role">Roll:</label>
+            <input type="text" id="role" name="role" placeholder="t.ex. Backend Utvecklare">
+            <div class="note">Ange rollen som personen kommer att ha.</div>
+
+            <label for="task">Uppgift:</label>
+            <input type="text" id="task" name="task" placeholder="t.ex. Implementera API-endpunkter">
+            <div class="note">Beskriv den huvudsakliga uppgiften som ska utföras.</div>
+
+            <label for="specifics">Specifika Instruktioner:</label>
+            <textarea id="specifics" name="specifics" placeholder="t.ex. Använd Django REST Framework och implementera JWT-autentisering."></textarea>
+            <div class="note">Inkludera detaljerade instruktioner för uppgiften.</div>
+
+            <label for="context">Kontekst:</label>
+            <textarea id="context" name="context" placeholder="t.ex. Projektet kräver säker kommunikation mellan klient och server."></textarea>
+            <div class="note">Ge sammanhang för varför uppgiften är viktig.</div>
+
+            <label for="examples">Exempel:</label>
+            <textarea id="examples" name="examples" placeholder="t.ex. Exempel på GET-endpunkt:\n@api_view(['GET'])\ndef example_view(request):\n    return Response({'message': 'Hello, world!'})"></textarea>
+            <div class="note">Ge exempel för att underlätta förståelsen.</div>
+
+            <label for="notes">Noteringar:</label>
+            <textarea id="notes" name="notes" placeholder="t.ex. Dokumentera alla endpunkter noggrant och hantera fel korrekt."></textarea>
+            <div class="note">Eventuella ytterligare anteckningar eller kommentarer.</div>
+
+            <label for="deadline">Deadline:</label>
+            <input type="text" id="deadline" name="deadline" placeholder="t.ex. 31 december 2023">
+            <div class="note">Ange sista datum för uppgiften.</div>
+
+            <label for="priority">Prioritet:</label>
+            <input type="text" id="priority" name="priority" placeholder="t.ex. Hög">
+            <div class="note">Ange prioritet för uppgiften.</div>
+
+            <input type="submit" value="Generera">
+        </form>
+    </div>
+</body>
+</html>
+
+
+

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_500">#6750A4</color>
+    <color name="purple_700">#4F378B</color>
+    <color name="teal_200">#03DAC5</color>
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
+
+    <color name="hint_high_contrast">#5A5A5A</color>
+
+    <!-- Ljus blå ikon -->
+    <color name="rain_icon_blue">#3AA8F7</color>
+
+    <!-- Chip bakgrund (default / checked) och stroke/ripple -->
+    <color name="rain_chip_bg_default">#E9F4FF</color>
+    <color name="rain_chip_bg_checked">#D6ECFF</color>
+    <color name="rain_chip_stroke">#C6E2FF</color>
+    <color name="rain_chip_ripple">#1F3AA8F7</color>
+
+    <!-- Enfärgade alias (state-list nedan använder dessa) -->
+    <color name="rain_chip_bg">#E9F4FF</color>
+
+</resources>

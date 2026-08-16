@@ -1,0 +1,96 @@
+/* Uppgiftslista */
+
+.task-list-container {
+  margin-bottom: 32px;
+}
+
+/* Listans huvud */
+.task-list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.task-list-header h2 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+/* Filtersektion */
+.task-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 24px;
+  padding: 16px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 200px;
+}
+
+.filter-group label {
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.filter-group select {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+/* Laddningsindikator */
+.loading-indicator {
+  text-align: center;
+  padding: 24px;
+  color: #666;
+}
+
+/* Tom lista */
+.empty-state {
+  text-align: center;
+  padding: 32px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  color: #666;
+}
+
+.empty-state p {
+  margin-bottom: 16px;
+}
+
+/* Uppgiftsrutnät */
+.task-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+/* Responsiv anpassning */
+@media (max-width: 768px) {
+  .task-list-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .task-filters {
+    flex-direction: column;
+  }
+
+  .filter-group {
+    width: 100%;
+  }
+
+  .task-grid {
+    grid-template-columns: 1fr;
+  }
+}

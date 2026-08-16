@@ -1,0 +1,56 @@
+<resources>
+    <string name="app_name">API Integration v5</string>
+    <string name="search_hint">Sök stad…</string>
+    <string name="save">Spara</string>
+    <string name="saved">Sparade platser</string>
+    <string name="settings">Inställningar</string>
+    <string name="logout">Till start (rensa stack)</string>
+    <string name="notify_text_rain">Det ser ut att börja regna snart.</string>
+    <string name="units_metric">Celsius</string>
+    <string name="units_imperial">Fahrenheit</string>
+
+    <!-- NY -->
+    <string name="channel_weather_alerts">Vädervarningar</string>
+    <string name="channel_weather_alerts_desc">Notiser vid hög regnrisk</string>
+    <string name="notify_title">Vädervarning</string>
+    <string name="notify_text_rain_city_pct">%1$s: Regnchans %2$d%% nästa timme</string>
+
+
+    <string name="no_results">Inga träffar ännu. Skriv minst 2 tecken…</string>
+    <string name="error_generic">Något gick fel. Försök igen.</string>
+    <string name="type_to_search">Skriv minst 2 tecken för att söka…</string>
+    <string name="clear_text">Rensa text</string>
+
+    <string name="precip_prob_format">%1$d%%</string>
+    <string name="hour_item_a11y">%1$s, %2$s, %3$s</string>
+    <string name="city_item_a11y">%1$s, %2$s</string>
+
+    <string name="settings_section_units">Enheter</string>
+    <string name="settings_units_title">Visa Fahrenheit</string>
+    <string name="settings_units_subtitle">Byt mellan °C och °F i appen.</string>
+
+    <string name="settings_section_alerts">Varningar</string>
+    <string name="settings_alerts_title">Vädervarningar</string>
+    <string name="settings_alerts_subtitle">Få notiser vid sannolikhet för regn i närtid.</string>
+
+    <string name="settings_section_other">Övrigt</string>
+
+    <string name="search_city_hint">Sök stad (t.ex. Malmö)</string>
+
+    <string name="today">Idag</string>
+    <string name="rain_chance_short">%1$d %%</string>
+
+    <string name="settings_test_notif_now">Testa notis nu</string>
+    <string name="settings_clear_notif_cooldown">Rensa notis-cooldown</string>
+
+    <!-- Settings / Snackbar-meddelanden -->
+    <string name="settings_alerts_on">Vädervarningar aktiverade</string>
+    <string name="settings_alerts_off">Vädervarningar avaktiverade</string>
+    <string name="settings_test_sent">Testnotis skickad</string>
+    <string name="settings_cooldown_cleared">Cooldown rensad</string>
+    <string name="settings_cooldown_empty">Ingen cooldown att rensa</string>
+
+    <!-- Menytitel för hem (om du inte redan har den) -->
+    <string name="home">Hem</string>
+
+</resources>

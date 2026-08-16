@@ -1,0 +1,33 @@
+/* 404-sida */
+
+.not-found-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 80vh;
+  padding: 24px;
+}
+
+/* 404-siffra */
+.not-found-page h1 {
+  font-size: 6rem;
+  margin: 0;
+  color: var(--primary-color);
+}
+
+/* Underrubrik */
+.not-found-page h2 {
+  font-size: 2rem;
+  margin: 0 0 16px 0;
+  color: var(--text-primary);
+}
+
+/* Förklaringstext */
+.not-found-page p {
+  font-size: 1.1rem;
+  margin-bottom: 32px;
+  color: var(--text-secondary);
+  max-width: 500px;
+}

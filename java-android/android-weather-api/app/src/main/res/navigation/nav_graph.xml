@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.mobilt_java24_anton_smedberg_apl_intergration_v5.ui.home.HomeFragment"
+        android:label="Hem">
+        <action
+            android:id="@+id/action_home_to_details"
+            app:destination="@id/detailsFragment" />
+        <action
+            android:id="@+id/action_home_to_saved"
+            app:destination="@id/savedFragment" />
+        <action
+            android:id="@+id/action_home_to_settings"
+            app:destination="@id/settingsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/detailsFragment"
+        android:name="com.example.mobilt_java24_anton_smedberg_apl_intergration_v5.ui.details.DetailsFragment"
+        android:label="Detaljer">
+        <action
+            android:id="@+id/action_details_to_saved"
+            app:destination="@id/savedFragment" />
+        <action
+            android:id="@+id/action_details_to_settings"
+            app:destination="@id/settingsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/savedFragment"
+        android:name="com.example.mobilt_java24_anton_smedberg_apl_intergration_v5.ui.saved.SavedFragment"
+        android:label="Sparade" />
+
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.example.mobilt_java24_anton_smedberg_apl_intergration_v5.ui.settings.SettingsFragment"
+        android:label="Inställningar" />
+</navigation>

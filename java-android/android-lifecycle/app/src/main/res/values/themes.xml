@@ -1,0 +1,8 @@
+<resources>
+    <!-- Bas-tema för appen, Compose-centrerad -->
+    <style name="Theme.Mobilt_java24_Anton_Smedberg_LifeCycle_v5" parent="Theme.Material3.DayNight">
+        <!-- Jag kör Compose → ingen actionbar -->
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+</resources>

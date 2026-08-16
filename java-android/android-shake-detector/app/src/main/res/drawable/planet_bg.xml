@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="120dp"
+    android:height="120dp"
+    android:viewportWidth="100"
+    android:viewportHeight="100">
+
+    <!-- Planet (mjuk blå ton) -->
+    <path
+        android:fillColor="#1E2B45"
+        android:pathData="M50,50a32,32 0 1,1 -0.1,0z"/>
+
+    <!-- Subtil “terminator”-skugga (crescent) -->
+    <path
+        android:fillColor="#22000000"
+        android:pathData="M50,50a32,32 0 0,1 -32,32a32,32 0 0,1 32,-32z"/>
+
+    <!-- Highlight-fläck uppe vänster -->
+    <path
+        android:fillColor="#22FFFFFF"
+        android:pathData="M38,38a9,9 0 1,1 -0.1,0z"/>
+
+    <!-- 3 små stjärnor – sparsamt -->
+    <path android:fillColor="#55FFFFFF" android:pathData="M10,16h1v1h-1z"/>
+    <path android:fillColor="#44FFFFFF" android:pathData="M26,10h1v1h-1z"/>
+    <path android:fillColor="#44FFFFFF" android:pathData="M18,28h1v1h-1z"/>
+</vector>

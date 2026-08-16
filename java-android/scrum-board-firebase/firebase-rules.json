@@ -1,0 +1,25 @@
+{
+  "rules": {
+    ".read": "auth != null",
+    ".write": "auth != null",
+    "tasks": {
+      ".indexOn": [
+        "status",
+        "assignedToMemberId",
+        "category",
+        "creationTimestamp"
+      ]
+    },
+    "members": {
+      ".indexOn": ["name", "role"]
+    },
+    "_diagnostics": {
+      ".read": "auth != null",
+      ".write": "auth != null"
+    },
+    "_connectionTest": {
+      ".read": "auth != null",
+      ".write": "auth != null"
+    }
+  }
+}

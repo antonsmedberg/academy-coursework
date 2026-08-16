@@ -1,0 +1,33 @@
+# Ignorera arbetsytans konfigurationsfil
+prompt_engineer_ai.code-workspace
+
+# Ignorera __pycache__ katalogen
+__pycache__/
+
+# Ignorera eventuella dolda systemfiler (Windows)
+Thumbs.db
+.DS_Store
+
+# Ignorera Python-paketeringsfiler
+*.egg-info/
+*.egg
+
+# Ignorera kompilatorns utmatningsfiler
+*.pyc
+*.pyo
+*.pyd
+
+# Ignorera virtual environment
+venv/
+env/
+
+# Ignorera loggfiler
+*.log
+
+# Ignorera Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Ignorera IDE konfigurationsfiler
+.vscode/
+.idea/
+

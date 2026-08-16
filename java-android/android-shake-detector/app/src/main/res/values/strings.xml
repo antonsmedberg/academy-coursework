@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- App -->
+    <string name="app_name">Shake Rocket Lab</string>
+
+    <!-- UI texter -->
+    <string name="title">Shake Rocket Lab</string>
+    <string name="hint">Luta eller skaka för att styra raketen. Långtryck på raketen startar testläge.</string>
+    <string name="label_boost">Skaknivå</string>
+    <string name="switch_gyro">Styrning: Gyro på/av</string>
+
+    <string name="accel_title">Accelerometer</string>
+    <string name="gyro_title">Gyroskop</string>
+    <string name="light_title">Ljus</string>
+
+    <!-- Tröskel -->
+    <string name="thresh_val_27">2.7 g</string>
+    <string name="thresh_val_fmt">%.1f g</string>
+
+    <!-- Sammanfattning -->
+    <string name="summary_shake">Skaknivå: Lugnt</string>
+    <string name="summary_mode">Styrning: Lutning</string>
+    <string name="summary_light">Miljöljus: Inne</string>
+
+    <string name="summary_shake_fmt">Skaknivå: %1$s</string>
+    <string name="summary_mode_fmt">Styrning: %1$s</string>
+    <string name="summary_light_fmt">Miljöljus: %1$s</string>
+
+    <string name="mode_gyro">Gyro</string>
+    <string name="mode_accel">Lutning</string>
+
+    <string name="shake_calm">Lugnt</string>
+    <string name="shake_shaky">Skakigt</string>
+    <string name="shake_wild">Vilt</string>
+
+    <string name="light_dark">Mörkt</string>
+    <string name="light_indoor">Inne</string>
+    <string name="light_bright">Ljust</string>
+
+    <!-- Lättlästa, radbrutna format (visar allt) -->
+    <string name="accel_placeholder_pretty">X: +0.00 g\nY: +0.00 g\nZ: +0.00 g\nMagnitud: 0.00 g  (Topp: 0.00 g)</string>
+    <string name="gyro_placeholder_pretty">ωx: +0.00 rad/s\nωy: +0.00 rad/s\nωz: +0.00 rad/s\nYaw: 0.0°</string>
+    <string name="light_placeholder_pretty">Ljus: 0 lux</string>
+
+    <string name="accel_live_pretty_fmt">X: %+.2f g\nY: %+.2f g\nZ: %+.2f g\nMagnitud: %.2f g  (Topp: %.2f g)</string>
+    <string name="gyro_live_pretty_fmt">ωx: %+.2f rad/s\nωy: %+.2f rad/s\nωz: %+.2f rad/s\nYaw: %.1f°</string>
+    <string name="light_live_pretty_fmt">Ljus: %.0f lux</string>
+
+    <!-- Status/diagnos -->
+    <string name="status_no_motion">Ingen rörelsedata ännu. Tips: Emulator → Extended controls → Virtual sensors.</string>
+    <string name="status_simple_fmt">Läge: %1$s • Tröskel: %2$.1f g • Skakningar: %3$d • Topp: %4$.2f g</string>
+    <string name="toast_shake">Skakning: g=%.2f</string>
+
+    <!-- Toggle detaljer -->
+    <string name="toggle_details_show">Visa detaljer</string>
+    <string name="toggle_details_hide">Dölj detaljer</string>
+
+    <!-- Demo -->
+    <string name="demo_on">Testläge på</string>
+    <string name="demo_off">Testläge av</string>
+
+    <!-- content descriptions -->
+    <string name="desc_planet">Bakgrundsplanet</string>
+    <string name="desc_rocket">Raket</string>
+
+    <!-- fel -->
+    <string name="err_no_accel">Accelerometer saknas på den här enheten.</string>
+    <string name="err_no_gyro">Gyroskop: ej tillgängligt</string>
+    <string name="err_no_light">Ljus: ej tillgängligt</string>
+
+</resources>

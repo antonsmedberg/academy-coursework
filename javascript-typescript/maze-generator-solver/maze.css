@@ -1,0 +1,126 @@
+/* Allmänna kropps- och sidlayout */
+body {
+    font-family: 'Arial', sans-serif; /* Säkerställer ett konsekvent typsnitt */
+    display: flex;
+    flex-direction: column; /* Innehåll i kolumnlayout */
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #f4f4f4, #dcdcdc);
+    margin: 0; /* Tar bort standardmarginal */
+    padding: 20px; /* Lägger till padding runt innehållet */
+}
+
+/* Labyrintens stil */
+.maze-container {
+    display: grid;
+    gap: 2px;
+    padding: 10px;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fill, 50px);
+    border: 3px solid #333;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    background: #fff;
+    margin: 20px 0; /* Lägger till vertikalt utrymme runt labyrinten */
+}
+
+.cell {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.3s;
+    border: 1px solid #ddd;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.cell:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.wall {
+    background-color: #333;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.path {
+    background-color: #4CAF50;
+    animation: pathPulse 1s infinite;
+}
+
+@keyframes pathPulse {
+    0% { background-color: #4CAF50; }
+    50% { background-color: #66BB6A; }
+    100% { background-color: #4CAF50; }
+}
+
+.start {
+    background-color: #2196F3;
+    box-shadow: 0 0 10px #2196F3;
+}
+
+.end {
+    background-color: #f44336;
+    box-shadow: 0 0 10px #f44336;
+}
+
+.unvisited {
+    background-color: #9E9E9E;
+}
+
+.visited {
+    background-color: #FFFF00;
+    animation: visitedPulse 1s infinite;
+}
+
+@keyframes visitedPulse {
+    0% { background-color: #FFFF00; }
+    50% { background-color: #FFEB3B; }
+    100% { background-color: #FFFF00; }
+}
+
+/* Knappar */
+button {
+    padding: 10px 20px;
+    margin: 5px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+    background-color: #367C39;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Statusmeddelande */
+.status-message {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 18px;
+    color: #333;
+}
+
+/* Responsiv design för mindre skärmar */
+@media (max-width: 600px) {
+    .maze-container {
+        grid-template-columns: repeat(auto-fill, 40px); /* Mindre celler på mindre skärmar */
+    }
+
+    .cell {
+        width: 40px;
+        height: 40px;
+    }
+
+    button {
+        padding: 8px 16px; /* Mindre knappar på mindre skärmar */
+    }
+}

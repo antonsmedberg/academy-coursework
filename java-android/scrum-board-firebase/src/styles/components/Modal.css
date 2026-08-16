@@ -1,0 +1,202 @@
+/* Mina popup-fönster - som eleganta dialogrutor! 💬 */
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(17, 24, 39, 0.65);
+  backdrop-filter: blur(3px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  animation: overlay-appear 0.3s ease-out;
+  padding: 20px;
+  overflow-y: auto;
+  isolation: isolate;
+}
+
+@keyframes overlay-appear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Dialogrutan */
+.modal {
+  background-color: var(--card-background);
+  border-radius: 8px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+  display: flex;
+  flex-direction: column;
+  max-height: 85vh;
+  animation: modal-appear 0.3s ease-out;
+  overflow: hidden;
+  position: relative;
+  margin: auto;
+  max-width: 95vw;
+  z-index: 10000;
+  transform: translateZ(0);
+}
+
+/* Mjuk animation */
+@keyframes modal-appear {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Storlekar */
+.modal-small {
+  width: 400px;
+  max-width: calc(100vw - 40px);
+}
+
+.modal-medium {
+  width: 500px;
+  max-width: calc(100vw - 40px);
+}
+
+.modal-large {
+  width: 700px;
+  max-width: calc(100vw - 40px);
+}
+
+/* Modal-header */
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 24px;
+  border-bottom: 1px solid var(--border-color);
+  position: relative;
+}
+
+.modal-title {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  font-family: "Inter", system-ui, sans-serif;
+}
+
+/* Stängknapp */
+.modal-close {
+  background: none;
+  border: none;
+  font-size: 1.1rem;
+  cursor: pointer;
+  color: var(--text-secondary);
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  position: relative;
+  margin-left: 8px;
+}
+
+/* Hover-effekt på stängknappen */
+.modal-close:hover {
+  background-color: rgba(0, 0, 0, 0.03);
+  color: var(--text-primary);
+}
+
+/* Innehållsområde */
+.modal-content {
+  padding: 24px;
+  overflow-y: auto;
+  flex-grow: 1;
+  position: relative;
+  background-color: var(--card-background);
+  line-height: 1.5;
+}
+
+/* Scrollbar */
+.modal-content::-webkit-scrollbar {
+  width: 4px;
+}
+
+.modal-content::-webkit-scrollbar-track {
+  background: transparent;
+  margin: 4px;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.08);
+  border-radius: 4px;
+}
+
+.modal-content::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.12);
+}
+
+/* Footer */
+.modal-footer {
+  padding: 18px 24px;
+  border-top: 1px solid var(--border-color);
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  position: relative;
+}
+
+/* Knappar i footer */
+.modal-footer .button {
+  min-width: 80px;
+}
+
+/* Responsiv anpassning */
+@media (max-width: 768px) {
+  .modal-overlay {
+    padding: 16px;
+  }
+
+  .modal-small,
+  .modal-medium,
+  .modal-large {
+    width: 100%;
+    max-width: 500px;
+  }
+
+  .modal-title {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .modal-overlay {
+    padding: 12px;
+  }
+
+  .modal-header {
+    padding: 14px 16px;
+  }
+
+  .modal-content {
+    padding: 16px;
+  }
+
+  .modal-footer {
+    padding: 14px 16px;
+    flex-direction: column-reverse;
+    gap: 8px;
+  }
+
+  .modal-footer .button {
+    width: 100%;
+  }
+}

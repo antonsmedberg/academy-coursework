@@ -1,0 +1,96 @@
+:root {
+  --primary-bg-color: #f4f7f6;
+  --content-bg-color: #ffffff;
+  --focus-outline-color: #3498db;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --border-radius: 8px;
+  --skip-link-bg-color: #3498db;
+  --skip-link-text-color: #fff;
+}
+
+.layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: var(--primary-bg-color);
+}
+
+.dark-mode-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 999;
+  background-color: transparent;
+  border: none;
+  color: var(--focus-outline-color);
+  cursor: pointer;
+}
+
+.main-content {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  background: var(--content-bg-color);
+  margin: 20px;
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 6px var(--shadow-color);
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    margin: 10px;
+    padding: 10px;
+  }
+}
+
+a:focus, button:focus {
+  outline: 3px solid var(--focus-outline-color);
+  outline-offset: 2px;
+}
+
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--skip-link-bg-color);
+  color: var(--skip-link-text-color);
+  padding: 8px;
+  z-index: 100;
+  transition: top 0.3s ease;
+}
+
+.skip-link:focus {
+  top: 10px;
+}
+
+/* Fluid typography */
+html {
+  font-size: 100%;
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  html {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+.dark-mode {
+  --primary-bg-color: #222;
+  --content-bg-color: #333;
+  --focus-outline-color: #4CAF50;
+  --shadow-color: rgba(255, 255, 255, 0.1);
+}
+
+
+
+
+  

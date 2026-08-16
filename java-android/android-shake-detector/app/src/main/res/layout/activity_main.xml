@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_bg"
+    android:padding="16dp"
+    tools:context=".MainActivity">
+
+    <!-- Titel + kort hint -->
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/title"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:includeFontPadding="false"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:id="@+id/tvHint"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/hint"
+        android:textColor="#B3FFFFFF"
+        android:textSize="13sp"
+        android:includeFontPadding="false"
+        android:layout_marginTop="4dp"
+        app:layout_constraintTop_toBottomOf="@id/tvTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- Skrollbart innehåll så allt ryms även på små skärmar -->
+    <ScrollView
+        android:id="@+id/scroll"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintTop_toBottomOf="@id/tvHint"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Scen: planet + raket (långtryck på raketen = demo) -->
+            <FrameLayout
+                android:id="@+id/scene"
+                android:layout_width="match_parent"
+                android:layout_height="220dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="12dp">
+
+                <!-- Mindre planet i hörnet, låg alpha och centerInside så den inte täcker raketen -->
+                <ImageView
+                    android:id="@+id/ivPlanet"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:layout_gravity="bottom|start"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:alpha="0.6"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/planet_bg"
+                    android:contentDescription="@string/desc_planet"/>
+
+                <!-- Raketen lite mindre så den får luft runt sig -->
+                <ImageView
+                    android:id="@+id/ivRocket"
+                    android:layout_width="160dp"
+                    android:layout_height="160dp"
+                    android:layout_gravity="center"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/rocket"
+                    android:contentDescription="@string/desc_rocket"/>
+            </FrameLayout>
+
+            <!-- Skaknivå (g-kraft som progress) -->
+            <LinearLayout
+                android:id="@+id/boostCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/card_bg"
+                android:padding="12dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/label_boost"
+                    android:textStyle="bold"
+                    android:textColor="#FFFFFF"
+                    android:includeFontPadding="false"/>
+
+                <ProgressBar
+                    android:id="@+id/pbBoost"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="12dp"
+                    android:layout_marginTop="8dp"
+                    android:max="100"
+                    android:progress="0"
+                    android:progressTint="@color/axis_amber"
+                    android:background="@drawable/progress_track"/>
+            </LinearLayout>
+
+            <!-- Kontroller -->
+            <LinearLayout
+                android:id="@+id/controls"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/card_bg"
+                android:padding="12dp"
+                android:orientation="vertical">
+
+                <!-- Tröskel + siffra -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <SeekBar
+                        android:id="@+id/sbThreshold"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:max="50"
+                        android:progress="27"/>
+
+                    <TextView
+                        android:id="@+id/tvThreshold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/thresh_val_27"
+                        android:textColor="#FFFFFF"
+                        android:paddingStart="8dp"
+                        android:paddingEnd="4dp"
+                        android:includeFontPadding="false"/>
+                </LinearLayout>
+
+                <!-- Rotationsläge: Accel ↔ Gyro -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="8dp">
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/swGyro"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/switch_gyro"
+                        android:textColor="#FFFFFF"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Sammanfattning (icke-teknisk) + “Visa detaljer” -->
+            <LinearLayout
+                android:id="@+id/summaryCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/card_bg"
+                android:padding="12dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvShakeLevel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/summary_shake"
+                    android:textColor="#FFFFFF"
+                    android:includeFontPadding="false"/>
+
+                <TextView
+                    android:id="@+id/tvMode"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/summary_mode"
+                    android:textColor="#FFFFFF"
+                    android:layout_marginTop="4dp"
+                    android:includeFontPadding="false"/>
+
+                <TextView
+                    android:id="@+id/tvLightLevel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/summary_light"
+                    android:textColor="#FFFFFF"
+                    android:layout_marginTop="4dp"
+                    android:includeFontPadding="false"/>
+
+                <TextView
+                    android:id="@+id/tvToggleDetails"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/toggle_details_show"
+                    android:textColor="@color/axis_amber"
+                    android:layout_marginTop="8dp"/>
+            </LinearLayout>
+
+            <!-- Detaljer (rubriker över värden) — dold som standard -->
+            <LinearLayout
+                android:id="@+id/panelDetails"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <!-- ACC -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="@drawable/card_bg"
+                    android:padding="12dp"
+                    android:layout_marginBottom="8dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/accel_title"
+                        android:textStyle="bold"
+                        android:textColor="#FFFFFFFF"
+                        android:includeFontPadding="false"
+                        android:layout_marginBottom="4dp"/>
+
+                    <TextView
+                        android:id="@+id/tvAccel"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/accel_placeholder_pretty"
+                        android:textColor="#E6FFFFFF"
+                        android:fontFamily="monospace"
+                        android:textSize="13sp"
+                        android:lineSpacingExtra="2dp"/>
+                </LinearLayout>
+
+                <!-- GYRO -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="@drawable/card_bg"
+                    android:padding="12dp"
+                    android:layout_marginBottom="8dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/gyro_title"
+                        android:textStyle="bold"
+                        android:textColor="#FFFFFFFF"
+                        android:includeFontPadding="false"
+                        android:layout_marginBottom="4dp"/>
+
+                    <TextView
+                        android:id="@+id/tvGyro"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/gyro_placeholder_pretty"
+                        android:textColor="#E6FFFFFF"
+                        android:fontFamily="monospace"
+                        android:textSize="13sp"
+                        android:lineSpacingExtra="2dp"/>
+                </LinearLayout>
+
+                <!-- LJUS -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="@drawable/card_bg"
+                    android:padding="12dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/light_title"
+                        android:textStyle="bold"
+                        android:textColor="#FFFFFFFF"
+                        android:includeFontPadding="false"
+                        android:layout_marginBottom="4dp"/>
+
+                    <TextView
+                        android:id="@+id/tvLight"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/light_placeholder_pretty"
+                        android:textColor="#E6FFFFFF"
+                        android:fontFamily="monospace"
+                        android:textSize="13sp"
+                        android:lineSpacingExtra="2dp"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Status (enkel, icke-teknisk) -->
+            <TextView
+                android:id="@+id/tvStatus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="#90FFFFFF"
+                android:textSize="12sp"
+                android:includeFontPadding="false"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                tools:text="Läge: Accel • Tröskel: 2.7 g • Skakningar: 3 • Topp: 1.84 g"/>
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

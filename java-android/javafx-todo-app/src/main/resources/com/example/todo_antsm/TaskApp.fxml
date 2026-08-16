@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/18"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.todo_antsm.TaskController"
+            stylesheets="@styles.css"
+            styleClass="root">
+
+    <!-- Header -->
+    <top>
+        <HBox alignment="CENTER" styleClass="header">
+            <Label text="Anton Smedberg's Uppgiftshanterare"
+                   style="-fx-font-size: 24px; -fx-font-weight: bold;"/>
+        </HBox>
+    </top>
+
+    <!-- Main Content -->
+    <center>
+        <VBox spacing="30" alignment="CENTER" style="-fx-padding: 30;">
+
+            <!-- Task List Section -->
+            <VBox spacing="20" alignment="CENTER" style="
+                    -fx-background-color: rgba(255,255,255,0.7);
+                    -fx-background-radius: 15px;
+                    -fx-padding: 20;">
+                <Label text="Dina Uppgifter"
+                       style="-fx-font-size: 22px;
+                              -fx-font-weight: bold;
+                              -fx-text-fill: #3f51b5;" />
+                <ListView fx:id="taskListView"
+                          prefHeight="350"
+                          prefWidth="800"
+                          styleClass="list-view" />
+            </VBox>
+
+            <!-- Input Section -->
+            <VBox spacing="20" alignment="CENTER" style="
+                    -fx-background-color: linear-gradient(to right, rgba(63,81,181,0.1), rgba(33,150,243,0.1));
+                    -fx-background-radius: 15px;
+                    -fx-padding: 25;">
+                <Label text="Hantera Uppgifter"
+                       style="-fx-font-size: 20px;
+                              -fx-font-weight: bold;
+                              -fx-text-fill: #2196f3;" />
+                <HBox spacing="20" alignment="CENTER">
+                    <TextField fx:id="taskTitleField"
+                               promptText="Uppgiftens Titel"
+                               styleClass="text-field"
+                               HBox.hgrow="ALWAYS"/>
+                    <TextField fx:id="taskDescriptionField"
+                               promptText="Beskrivning"
+                               styleClass="text-field"
+                               HBox.hgrow="ALWAYS"/>
+                    <DatePicker fx:id="taskDeadlinePicker"
+                                promptText="Välj deadline"
+                                styleClass="text-field"
+                                HBox.hgrow="ALWAYS"/>
+                </HBox>
+            </VBox>
+
+            <!-- Buttons -->
+            <HBox spacing="25" alignment="CENTER">
+                <Button text="Lägg till Uppgift"
+                        onAction="#handleAddTask"
+                        styleClass="button"/>
+                <Button text="Uppdatera"
+                        onAction="#handleEditTask"
+                        styleClass="button update-button"/>
+                <Button text="Ta Bort"
+                        onAction="#handleDeleteTask"
+                        styleClass="button delete-button"/>
+            </HBox>
+        </VBox>
+    </center>
+
+    <!-- Footer -->
+    <bottom>
+        <HBox alignment="CENTER" styleClass="footer">
+            <Label text="© 2024 Anton Smedberg | Alla rättigheter reserverade" />
+        </HBox>
+    </bottom>
+
+</BorderPane>
+
+
+
+
+
+
+
+
+
+

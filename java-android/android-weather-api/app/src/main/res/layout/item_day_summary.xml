@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginVertical="10dp"
+    android:clickable="false"
+    android:focusable="false"
+    app:cardUseCompatPadding="true"
+    app:cardCornerRadius="20dp"
+    app:strokeColor="?attr/colorOutlineVariant"
+    app:strokeWidth="1dp"
+    app:cardBackgroundColor="?attr/colorSurface"
+    app:cardElevation="1dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="96dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:paddingTop="14dp"
+        android:paddingBottom="14dp">
+
+        <!-- Emoji-väderikon (dekorativ, ej för skärmläsare) -->
+        <TextView
+            android:id="@+id/txtIcon"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:gravity="center"
+            android:textSize="26sp"
+            android:includeFontPadding="false"
+            android:importantForAccessibility="no"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:text="🌦️" />
+
+        <!-- Vänsterkolumn: Dag + vädertext -->
+        <LinearLayout
+            android:id="@+id/colMiddle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingEnd="12dp"
+            app:layout_constraintStart_toEndOf="@id/txtIcon"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/colRight">
+
+            <TextView
+                android:id="@+id/txtDay"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?attr/textAppearanceTitleMedium"
+                android:textStyle="bold"
+                android:includeFontPadding="false"
+                android:maxLines="1"
+                android:ellipsize="end"
+                tools:text="Idag" />
+
+            <TextView
+                android:id="@+id/txtCond"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?attr/textAppearanceBodyMedium"
+                android:textColor="?attr/colorOnSurfaceVariant"
+                android:includeFontPadding="false"
+                android:maxLines="1"
+                android:ellipsize="end"
+                tools:text="Lätt regn" />
+        </LinearLayout>
+
+        <!-- Högerkolumn: Temperaturer + regnchip -->
+        <LinearLayout
+            android:id="@+id/colRight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="end"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <!-- Temperaturrad (tabulära siffror för stabilt layoutflow) -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="end">
+
+                <TextView
+                    android:id="@+id/txtTempHi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?attr/textAppearanceBodyLarge"
+                    android:textStyle="bold"
+                    android:includeFontPadding="false"
+                    android:fontFeatureSettings="tnum"
+                    android:layout_marginEnd="12dp"
+                    tools:text="↑19°" />
+
+                <TextView
+                    android:id="@+id/txtTempLo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?attr/textAppearanceBodyLarge"
+                    android:textColor="?attr/colorOnSurfaceVariant"
+                    android:includeFontPadding="false"
+                    android:fontFeatureSettings="tnum"
+                    tools:text="↓15°" />
+            </LinearLayout>
+
+            <!-- Regnchans-chip
+                 - Text sätts i adapter (TimeUtils.rainChipText)
+                 - isChecked styrs i adapter (Thresholds)
+                 - Egen ikon behålls -->
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipRain"
+                style="@style/Widget.Material3.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:checkable="true"
+                android:clickable="false"
+                android:focusable="false"
+                android:textAppearance="?attr/textAppearanceLabelLarge"
+                android:includeFontPadding="false"
+                app:chipIcon="@drawable/ic_rain_drop"
+                app:chipIconVisible="true"
+                app:checkedIconVisible="false"
+                app:chipStrokeWidth="1dp"
+                app:chipStrokeColor="@color/rain_chip_stroke"
+                app:chipBackgroundColor="@color/rain_chip_bg"
+                app:chipIconTint="@color/rain_icon_blue"
+                app:rippleColor="@color/rain_chip_ripple"
+                tools:text="Regnchans • 64 %" />
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>

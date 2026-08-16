@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <script src="./js/script.js" defer></script>
+    <title>Grisen – Enspelarläge</title>
+</head>
+    <body>
+    <main>
+        <!-- Första steget: spelaren fyller i sitt namn -->
+        <section id="setup-section" class="container active-section">
+        <h1>Välkommen till Grisen!</h1>
+
+        <form id="name-form">
+            <label for="player-name-input">Ange ditt namn:</label>
+            <input
+            type="text"
+            id="player-name-input"
+            required
+            placeholder="Ditt namn"
+            />
+            <button type="submit" class="btn">Starta spelet</button>
+        </form>
+        </section>
+
+        <!-- Här visas själva spelet efter att spelaren har startat -->
+        <section id="game-section" class="container hidden">
+        <!-- Spelarens namn sätts dynamiskt -->
+        <h2 id="display-player-name">Spelare</h2>
+
+        <!-- Visar poäng, rundans poäng och antal spelade omgångar -->
+        <div class="game-info">
+            <div class="score-box">
+            <h3>Totalpoäng</h3>
+            <p id="display-total-score">0</p>
+            </div>
+            <div class="score-box">
+            <h3>Poäng denna omgång</h3>
+            <p id="display-round-score">0</p>
+            </div>
+            <div class="score-box">
+            <h3>Omgång</h3>
+            <p id="display-rounds-played">0</p>
+            </div>
+        </div>
+
+        <!-- Här visas tärningen och meddelanden under omgången -->
+        <div class="dice-area">
+            <div class="dice-text">
+            <h3 id="round-message"></h3>
+            <p>Senaste kast: <span id="dice-value">-</span></p>
+            </div>
+
+            <!-- Tärningen med glow-effekt runt -->
+            <div class="dice-container">
+            <div class="dice-glow-wrapper">
+                <div class="dice-glow"></div>
+            </div>
+
+            <!-- Själva tärningen – varje sida har en bild -->
+            <div id="dice" class="dice">
+                <div class="side front"><img src="images/dice-1.png" alt="1" /></div>
+                <div class="side back"><img src="images/dice-6.png" alt="6" /></div>
+                <div class="side left"><img src="images/dice-3.png" alt="3" /></div>
+                <div class="side right"><img src="images/dice-4.png" alt="4" /></div>
+                <div class="side top"><img src="images/dice-2.png" alt="2" /></div>
+                <div class="side bottom"><img src="images/dice-5.png" alt="5" /></div>
+            </div>
+            </div>
+        </div>
+
+        <!-- Här har vi knapparna för att kasta tärningen eller spara poäng -->
+        <div class="controls">
+            <button id="roll-btn" class="btn game-btn">🎲 Kasta tärning</button>
+            <button id="hold-btn" class="btn game-btn">📥 Håll poäng</button>
+        </div>
+
+        <!-- Visas när spelaren har vunnit -->
+        <div id="win-message" class="win-message hidden">
+            <p id="win-text"></p>
+            <button id="new-game-btn" class="btn">Spela igen?</button>
+        </div>
+        </section>
+    </main>
+    </body>
+    </html>

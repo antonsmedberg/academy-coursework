@@ -1,0 +1,58 @@
+/* Mitt formulär för att lägga till teammedlemmar */
+
+.add-member-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.add-member-form h2 {
+  margin-top: 0;
+  margin-bottom: 8px;
+  font-size: 1.5rem;
+}
+
+/* Formulärgrupper - håller allt snyggt organiserat */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+/* Snygga inmatningsfält */
+.form-group input,
+.form-group select {
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+/* Fokus-effekt på inmatningsfält */
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+}
+
+/* Felmeddelanden */
+.form-error {
+  background-color: #fdecea;
+  color: #e74c3c;
+  padding: 10px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+/* Knappar längst ner */
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 8px;
+}

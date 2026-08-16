@@ -1,0 +1,304 @@
+/* Min digitala Scrum-tavla - elegant och professionell design */
+
+.scrum-board-container {
+  margin-bottom: var(--spacing-xxl);
+  animation: fadeIn 0.4s var(--transition-smooth);
+}
+
+/* Elegant header med förbättrad typografi */
+.board-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-lg);
+  padding-bottom: var(--spacing-sm);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.board-header h2 {
+  margin: 0;
+  font-size: 1.75rem;
+  color: var(--text-primary);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  background: linear-gradient(
+    135deg,
+    var(--primary-color),
+    var(--secondary-color)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  transition: all 0.3s ease;
+}
+
+/* Tre kolumner med ren och minimalistisk layout */
+.board-columns {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.board-column {
+  background-color: var(--card-background);
+  border-radius: 8px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  min-height: 500px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Elegant färgindikator för varje kolumn */
+.board-column:nth-child(1) {
+  border-top: 3px solid var(--primary-color);
+  background: linear-gradient(to bottom, rgba(37, 99, 235, 0.01), transparent);
+}
+
+.board-column:nth-child(2) {
+  border-top: 3px solid var(--accent-color);
+  background: linear-gradient(to bottom, rgba(194, 65, 12, 0.01), transparent);
+}
+
+.board-column:nth-child(3) {
+  border-top: 3px solid var(--secondary-color);
+  background: linear-gradient(to bottom, rgba(15, 118, 110, 0.01), transparent);
+}
+
+/* Förbättrad hover-effekt */
+.board-column:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  transform: translateY(-2px);
+}
+
+/* Rena och minimalistiska kolumnrubriker */
+.column-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+  position: relative;
+}
+
+.column-header h3 {
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  position: relative;
+  font-family: "Inter", system-ui, sans-serif;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+/* Subtila färger för varje kolumn */
+.board-column:nth-child(1) .column-header h3 {
+  color: var(--primary-color);
+}
+
+.board-column:nth-child(2) .column-header h3 {
+  color: var(--accent-color);
+}
+
+.board-column:nth-child(3) .column-header h3 {
+  color: var(--secondary-color);
+}
+
+/* Minimalistisk uppgiftsräknare */
+.task-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+  min-width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  font-weight: 500;
+  margin-left: 8px;
+  padding: 0 4px;
+  background-color: rgba(0, 0, 0, 0.03);
+  transition: all 0.2s ease;
+}
+
+/* Subtila färger på räknaren */
+.board-column:nth-child(1) .task-count {
+  color: var(--primary-color);
+  background-color: rgba(37, 99, 235, 0.05);
+}
+
+.board-column:nth-child(2) .task-count {
+  color: var(--accent-color);
+  background-color: rgba(194, 65, 12, 0.05);
+}
+
+.board-column:nth-child(3) .task-count {
+  color: var(--secondary-color);
+  background-color: rgba(15, 118, 110, 0.05);
+}
+
+/* Mer elegant innehåll i kolumnen */
+.column-content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  overflow-y: auto;
+  padding-right: 8px;
+  padding-bottom: 12px;
+  scroll-behavior: smooth;
+  position: relative;
+}
+
+/* Minimalistisk scrollbar */
+.column-content::-webkit-scrollbar {
+  width: 3px;
+}
+
+.column-content::-webkit-scrollbar-track {
+  background: transparent;
+  margin: 4px;
+}
+
+.column-content::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.08);
+  border-radius: 3px;
+  transition: background 0.2s ease;
+}
+
+.column-content::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.12);
+}
+
+/* Minimalistisk tom kolumn */
+.empty-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 16px;
+  color: var(--text-secondary);
+  height: 100%;
+  gap: 12px;
+  border-radius: 4px;
+  border: 1px dashed rgba(0, 0, 0, 0.06);
+  transition: all 0.2s ease;
+}
+
+.empty-column p {
+  margin: 0;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  max-width: 90%;
+  color: var(--text-secondary);
+  opacity: 0.8;
+}
+
+/* Minimalistisk laddningsindikator */
+.loading-indicator {
+  text-align: center;
+  padding: 16px;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  font-weight: 400;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.loading-indicator span {
+  color: var(--primary-color);
+}
+
+/* Enkel laddningsindikator */
+.loading-indicator::after {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 2px;
+  background-color: var(--primary-color);
+  border-radius: 1px;
+  animation: loadingBar 1.5s ease infinite;
+  margin-top: 6px;
+  opacity: 0.6;
+}
+
+@keyframes loadingBar {
+  0%,
+  100% {
+    width: 20px;
+    opacity: 0.4;
+  }
+  50% {
+    width: 40px;
+    opacity: 0.7;
+  }
+}
+
+/* Optimerad responsivitet */
+@media (max-width: 1200px) {
+  .board-columns {
+    gap: 16px;
+  }
+}
+
+@media (max-width: 992px) {
+  .board-columns {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .board-column {
+    min-height: 300px;
+  }
+}
+
+@media (max-width: 768px) {
+  .board-header {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 14px;
+  }
+
+  .board-header h2 {
+    font-size: 1.3rem;
+  }
+
+  .column-content {
+    gap: 10px;
+  }
+}
+
+@media (max-width: 576px) {
+  .board-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .board-column {
+    min-height: 250px;
+    padding: 12px;
+  }
+
+  .column-header {
+    margin-bottom: 10px;
+    padding-bottom: 6px;
+  }
+
+  .column-header h3 {
+    font-size: 0.85rem;
+  }
+}
